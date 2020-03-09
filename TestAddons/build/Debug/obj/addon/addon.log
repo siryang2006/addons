@@ -3,6 +3,5 @@ c:\users\tal\.node-gyp\6.0.2\include\node\v8.h(8207): warning C4996: 'v8::Microt
   c:\users\tal\.node-gyp\6.0.2\include\node\v8.h(6668): note: 参见“v8::MicrotasksCompletedCallback”的声明
 c:\users\tal\.node-gyp\6.0.2\include\node\v8.h(8216): warning C4996: 'v8::MicrotasksCompletedCallback': 被声明为已否决
   c:\users\tal\.node-gyp\6.0.2\include\node\v8.h(6668): note: 参见“v8::MicrotasksCompletedCallback”的声明
-    正在创建库 D:\code\rtc\new\zeus\products\electron\doc\TestAddons\build\Debug\addon.lib 和对象 D:\code\rtc\new\zeus\products\electron\doc\TestAddons\build\Debug\addon.exp
   addon.vcxproj -> D:\code\rtc\new\zeus\products\electron\doc\TestAddons\build\Debug\\addon.node
   addon.vcxproj -> D:\code\rtc\new\zeus\products\electron\doc\TestAddons\build\Debug\addon.pdb (Full PDB)

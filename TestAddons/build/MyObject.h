@@ -18,10 +18,16 @@ private:
 
     static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
     void PlusOne(const v8::FunctionCallbackInfo<v8::Value>& args);
+    void InvokeCallBack(const v8::FunctionCallbackInfo<v8::Value>& args);
+
+    auto AddHandleMessageCallBack(Isolate* isolate, Local<Object> obj)->void;
+    void dispatchNotifyCallback(std::string text);
 
 protected:
     static Persistent<Function> m_clsPrototype;
     double value_;
+
+    Persistent<Function> m_onHandleMessage;
 };
 
 

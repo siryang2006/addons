@@ -18,7 +18,13 @@
 	const talModel = require('../TestAddons/build/Debug/addon');
 	const TalMediaPlugin = talModel;
 	var obj = TalMediaPlugin.createObject(10);
+	
+	obj.handleMessage = function (message) {
+		alert("i am handleMessage" + message);
+	}
 
-	alert(obj.PlusOne());
+	alert("i am PlusOne:" + obj.PlusOne());
+	
+	obj.InvokeCallBack();
   </script>
 </html>

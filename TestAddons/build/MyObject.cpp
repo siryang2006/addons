@@ -22,6 +22,11 @@ void MyObject::Init(Isolate* isolate) {
         pObj->PlusOne(info);
     });
 
+    NODE_SET_PROTOTYPE_METHOD(tpl, "InvokeCallBack", [](const FunctionCallbackInfo<Value>& info) {
+        MyObject* pObj = node::ObjectWrap::Unwrap<MyObject>(info.Holder());
+        pObj->InvokeCallBack(info);
+    });
+
     Local<Context> context = isolate->GetCurrentContext();
     m_clsPrototype.Reset(isolate, tpl->GetFunction(context).ToLocalChecked());
 
@@ -50,7 +55,50 @@ void MyObject::New(const FunctionCallbackInfo<Value>& args) {
             cons->NewInstance(context, argc, argv).ToLocalChecked();
         args.GetReturnValue().Set(instance);
     }
+
+    //add callback
+    MyObject* pObj = node::ObjectWrap::Unwrap<MyObject>(args.Holder());
+    pObj->AddHandleMessageCallBack(isolate, args.Holder());
 }
+
+    auto MyObject::AddHandleMessageCallBack(Isolate* isolate, Local<Object> result)->void {
+        result->DefineOwnProperty(isolate->GetCurrentContext(), String::NewFromUtf8(isolate, "handleMessage").ToLocalChecked(),
+            Local<Object>(), ReadOnly);
+        result->SetAccessor(isolate->GetCurrentContext(), String::NewFromUtf8(isolate, "handleMessage").ToLocalChecked(), [](
+            Local<Name> property,
+            const PropertyCallbackInfo<Value>& info) {
+            v8::Local<v8::Object> handle = info.Holder();
+            assert(!handle.IsEmpty());
+            assert(handle->InternalFieldCount() > 0);
+            void* ptr = handle->GetAlignedPointerFromInternalField(0);
+            info.GetReturnValue().Set(static_cast<MyObject*>(ptr)->m_onHandleMessage.Get(info.GetIsolate()));
+        },
+            [](
+                Local<Name> property,
+                Local<Value> value,
+                const PropertyCallbackInfo<void>& info) {
+
+            v8::Local<v8::Object> handle = info.Holder();
+            assert(!handle.IsEmpty());
+            assert(handle->InternalFieldCount() > 0);
+            void* ptr = handle->GetAlignedPointerFromInternalField(0);
+            static_cast<MyObject*>(ptr)->m_onHandleMessage.Reset(info.GetIsolate(), value.As<Function>());
+        }
+        );
+}
+
+    void MyObject::dispatchNotifyCallback(std::string text) {
+        auto *isolate = Isolate::GetCurrent();
+
+        Local<Value> onHandleMessage = m_onHandleMessage.Get(isolate);
+        if (!onHandleMessage.IsEmpty()) {
+            Local<Value> retval[] = {
+                String::NewFromUtf8(isolate, text.c_str()).ToLocalChecked()
+            };
+            onHandleMessage.As<Object>()->CallAsFunction(isolate->GetCurrentContext(),
+                this->handle(), sizeof(retval) / sizeof(retval[0]), retval);
+        }
+    }
 
 Local<Object> MyObject::NewInstance(const FunctionCallbackInfo<Value>& args) {
     Isolate* isolate = args.GetIsolate();
@@ -71,4 +119,10 @@ void MyObject::PlusOne(const FunctionCallbackInfo<Value>& args) {
     obj->value_ += 1;
 
     args.GetReturnValue().Set(Number::New(isolate, obj->value_));
+}
+
+void MyObject::InvokeCallBack(const v8::FunctionCallbackInfo<v8::Value>& args) {
+    MyObject* obj = ObjectWrap::Unwrap<MyObject>(args.Holder());
+    std::string strText = std::to_string(obj->value_);
+    dispatchNotifyCallback(strText);
 }
