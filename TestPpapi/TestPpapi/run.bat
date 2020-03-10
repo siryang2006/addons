@@ -1,0 +1,1 @@
+C:\Users\TAL\AppData\Local\Google\Chrome\Application\chrome.exe --register-pepper-plugins="D:\\code\\mycode\\TestPpapi\\Debug\\TestPpapi.dll#ppexample##1.0.0;application/x-ppapi-myplugin" D:\\code\\mycode\\TestPpapi\\TestPpapi\\html\\index.html
