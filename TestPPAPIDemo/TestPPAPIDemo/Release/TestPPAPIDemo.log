@@ -1,0 +1,21 @@
+﻿  dllmain.cpp
+    正在创建库 D:\code\rtc\new\zeus\products\electron\doc\TestPPAPIDemo\Release\TestPPAPIDemo.lib 和对象 D:\code\rtc\new\zeus\products\electron\doc\TestPPAPIDemo\Release\TestPPAPIDemo.exp
+  正在生成代码
+  1 of 45 functions ( 2.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+ppapi_cpp_lib.lib(core.obj) : warning LNK4099: 未找到 PDB“objects_cc.pdb”(使用“ppapi_cpp_lib.lib(core.obj)”或在“D:\code\rtc\new\zeus\products\electron\doc\TestPPAPIDemo\Release\objects_cc.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+ppapi_cpp_lib.lib(file_ref.obj) : warning LNK4099: 未找到 PDB“objects_cc.pdb”(使用“ppapi_cpp_lib.lib(file_ref.obj)”或在“D:\code\rtc\new\zeus\products\electron\doc\TestPPAPIDemo\Release\objects_cc.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+ppapi_cpp_lib.lib(input_event.obj) : warning LNK4099: 未找到 PDB“objects_cc.pdb”(使用“ppapi_cpp_lib.lib(input_event.obj)”或在“D:\code\rtc\new\zeus\products\electron\doc\TestPPAPIDemo\Release\objects_cc.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+ppapi_cpp_lib.lib(instance.obj) : warning LNK4099: 未找到 PDB“objects_cc.pdb”(使用“ppapi_cpp_lib.lib(instance.obj)”或在“D:\code\rtc\new\zeus\products\electron\doc\TestPPAPIDemo\Release\objects_cc.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+ppapi_cpp_lib.lib(module.obj) : warning LNK4099: 未找到 PDB“objects_cc.pdb”(使用“ppapi_cpp_lib.lib(module.obj)”或在“D:\code\rtc\new\zeus\products\electron\doc\TestPPAPIDemo\Release\objects_cc.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+ppapi_cpp_lib.lib(precompile.cc.obj) : warning LNK4099: 未找到 PDB“objects_cc.pdb”(使用“ppapi_cpp_lib.lib(precompile.cc.obj)”或在“D:\code\rtc\new\zeus\products\electron\doc\TestPPAPIDemo\Release\objects_cc.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+ppapi_cpp_lib.lib(resource.obj) : warning LNK4099: 未找到 PDB“objects_cc.pdb”(使用“ppapi_cpp_lib.lib(resource.obj)”或在“D:\code\rtc\new\zeus\products\electron\doc\TestPPAPIDemo\Release\objects_cc.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+ppapi_cpp_lib.lib(url_loader.obj) : warning LNK4099: 未找到 PDB“objects_cc.pdb”(使用“ppapi_cpp_lib.lib(url_loader.obj)”或在“D:\code\rtc\new\zeus\products\electron\doc\TestPPAPIDemo\Release\objects_cc.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+ppapi_cpp_lib.lib(url_response_info.obj) : warning LNK4099: 未找到 PDB“objects_cc.pdb”(使用“ppapi_cpp_lib.lib(url_response_info.obj)”或在“D:\code\rtc\new\zeus\products\electron\doc\TestPPAPIDemo\Release\objects_cc.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+ppapi_cpp_lib.lib(var.obj) : warning LNK4099: 未找到 PDB“objects_cc.pdb”(使用“ppapi_cpp_lib.lib(var.obj)”或在“D:\code\rtc\new\zeus\products\electron\doc\TestPPAPIDemo\Release\objects_cc.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+ppapi_cpp_lib.lib(view.obj) : warning LNK4099: 未找到 PDB“objects_cc.pdb”(使用“ppapi_cpp_lib.lib(view.obj)”或在“D:\code\rtc\new\zeus\products\electron\doc\TestPPAPIDemo\Release\objects_cc.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+ppapi_cpp_lib.lib(ppp_entrypoints.obj) : warning LNK4099: 未找到 PDB“cpp_cc.pdb”(使用“ppapi_cpp_lib.lib(ppp_entrypoints.obj)”或在“D:\code\rtc\new\zeus\products\electron\doc\TestPPAPIDemo\Release\cpp_cc.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+  TestPPAPIDemo.vcxproj -> D:\code\rtc\new\zeus\products\electron\doc\TestPPAPIDemo\Release\TestPPAPIDemo.dll
+  TestPPAPIDemo.vcxproj -> D:\code\rtc\new\zeus\products\electron\doc\TestPPAPIDemo\Release\TestPPAPIDemo.pdb (Full PDB)

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>hello ppapi</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <embed id="plugin" type="application/x-ppapi-HelloPPAPI"  width="1" height="1"></embed>
+	<input type="text" id="inputBox" value="" />
+	<button onclick="SendString()" >发送消息</button>
+	<script type="text/javascript">
+	function HandleMessage(message_event) {
+		if (message_event.data) {
+		  alert("The string was a palindrome.");
+		} else {
+		  alert("The string was not a palindrome.");
+		}
+	}
+ 
+    window.addEventListener('load', res=>{
+		var plugin = document.getElementById("plugin");
+		plugin.addEventListener("message", HandleMessage, false);
+	});
+	 
+	function SendString() {
+		var plugin = document.getElementById("plugin");
+		var inputBox = document.getElementById("inputBox");
+	 
+		// Send the string to the plugin using postMessage.  This results in a call
+		// to Instance::HandleMessage in C++ (or PPP_Messaging::HandleMessage in C).
+		plugin.postMessage(inputBox.value);
+	 }
+    </script>
+</body>
+
+</html>
+
+ 
